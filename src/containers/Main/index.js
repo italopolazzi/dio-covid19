@@ -1,12 +1,11 @@
 import React from "react"
 import StyledMain from "./style"
+import Animation from 'components/Animation'
 
-function Main({ children }) {
-
-
+function Main(props) {
   return (
     <StyledMain>
-      {children}
+      <Animation />
     </StyledMain>
   )
 }
