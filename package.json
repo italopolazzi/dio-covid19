@@ -12,8 +12,10 @@
         "styled-components": "^5.1.1"
     },
     "scripts": {
-        "start": "react-app-rewired start",
-        "build": "react-app-rewired build",
+        "build:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
+        "watch:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
+        "start": "npm run watch:css & react-app-rewired start",
+        "build": "npm run build:css & react-app-rewired build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -33,7 +35,12 @@
         ]
     },
     "devDependencies": {
+        "autoprefixer": "^9.8.5",
+        "babel-plugin-macros": "^2.8.0",
         "customize-cra": "^1.0.0",
-        "react-app-rewired": "^2.1.6"
+        "postcss-cli": "^7.1.1",
+        "react-app-rewired": "^2.1.6",
+        "tailwindcss": "^1.5.2",
+        "twin.macro": "^1.6.2"
     }
 }
