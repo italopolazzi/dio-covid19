@@ -1,4 +1,8 @@
-const path = 'https://coronavirus-19-api.herokuapp.com/countries'
+const { REACT_APP_NEWS_API_KEY } = process.env
+
+const newsApiPath = country => `https://newsapi.org/v2/top-headlines?q=COVID&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_API_KEY}&pageSize=20&page=1&country=${country}`
+const reportsApiPath = country => `https://coronavirus-19-api.herokuapp.com/countries&country=${encodeURI(country)}`
+
 
 const headers = {
   method: 'get',
@@ -6,12 +10,18 @@ const headers = {
   cache: 'default'
 }
 
-const getCountry = async (country) => {
-  const response = await fetch(`${path}/${encodeURI(country)}`, headers)
+const getCountryReports = async (country) => {
+  const response = await fetch(reportsApiPath(country), headers)
   const json = await response.json()
   return json
 }
 
+const getCountryNews = async (country) => {
+  const response = await fetch(newsApiPath(country), headers)
+  const json = await response.json()
+  return json.articles
+}
+
 export default {
-  getCountry
+  getCountryReports, getCountryNews
 }

@@ -4,6 +4,8 @@ import ReportCard from 'components/ReportCard'
 
 
 const Reports = () => {
+  
+  
   return (
     <StyledReports>
       <ReportCard country="Brazil" />

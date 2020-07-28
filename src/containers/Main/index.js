@@ -2,8 +2,10 @@ import React from "react"
 import StyledMain from "./style"
 import Animation from 'components/Animation'
 import Reports from 'components/Reports'
+import News from 'components/News'
 
 function Main(props) {
+  console.log(process.env || "AAAAAAAAAAAAAAAAAAAAAAA");
   return (
     <StyledMain>
 
@@ -28,7 +30,7 @@ function Main(props) {
         </div>
 
         <div className="col lg:order-2 p-20 lg:p-0">
-          <Animation />
+          {/* <Animation /> */}
         </div>
 
       </header>
@@ -36,9 +38,7 @@ function Main(props) {
 
         <section id="news">
           <h2>News</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sequi non, quo similique, consequatur enim ducimus voluptatum repellendus libero expedita totam maxime recusandae error impedit facilis aut. Minima, asperiores saepe?
-          </p>
+          <News />
         </section>
 
         <section id="reports">
