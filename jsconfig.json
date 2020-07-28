@@ -17,5 +17,9 @@
         "./commons/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "build",
+    "node_modules"
+  ]
 }

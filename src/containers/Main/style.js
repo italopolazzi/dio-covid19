@@ -4,13 +4,14 @@ import tw from 'twin.macro'
 const background_color = 'bg-green-800'
 
 const StyledMain = styled.main.attrs({
-  className: ""
+  className: `${background_color}`
 })`
   & {
-    height: 100vh;
+    overflow-x: hidden;
+    ${tw`h-full lg:h-screen`}
 
     header {
-      ${tw`${background_color} overflow-hidden h-full grid lg:grid-cols-2`}
+      ${tw`overflow-hidden h-full grid lg:grid-cols-2`}
     }
 
     .col {

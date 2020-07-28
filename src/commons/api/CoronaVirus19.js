@@ -7,7 +7,7 @@ const headers = {
 }
 
 const getCountry = async (country) => {
-  const response = await fetch(`${path}/${country}`, headers)
+  const response = await fetch(`${path}/${encodeURI(country)}`, headers)
   const json = await response.json()
   return json
 }
