@@ -5,6 +5,9 @@ import CodeList from 'components/CodeList'
 import CountriesData from 'components/CountriesData'
 import countries from 'commons/constants/countries'
 
+import { motion } from "framer-motion"
+
+
 
 function Main(props) {
   const [dialog, setDialog] = useState(false)
@@ -22,7 +25,7 @@ function Main(props) {
       event.target.value = ''
     }
   }
-  
+
   const handleChange = event => {
     const code = event.target.value.toLowerCase()
     if (code.length === 2 && countries[code]) {
@@ -43,7 +46,13 @@ function Main(props) {
 
       <header className="mt-16">
 
-        <div className="col lg:order-1">
+
+        <motion.div
+          className="col lg:order-1"
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          transition={{ ease: "easeOut", duration: 0.3, type: 'spring', stiffness: 50 }}
+        >
           <div className="card">
             <h1>Covid-19</h1>
             <p>Search here for Reports and News about a country</p>
@@ -53,11 +62,15 @@ function Main(props) {
             </div>
             <button onClick={() => setDialog(true)} className="block font-semibold text-blue-400 text-right" href="#">See the available codes list</button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="col lg:order-2 p-20 lg:p-0">
+        <motion.div className="col lg:order-2 p-20 lg:p-0"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ ease: 'easeOut', delay: 1, duration: 2, type: 'spring', stiffness: 50 }}
+        >
           <Animation />
-        </div>
+        </motion.div>
 
       </header>
 
