@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
-const background_color = 'bg-green-800'
+const background_color = 'bg-white'
 
 const StyledMain = styled.main.attrs({
-  className: `${background_color}`
+  className: `main-content ${background_color}`
 })`
   & {
     overflow-x: hidden;
     ${tw`h-full lg:h-screen`}
 
-    header {
+    & > header {
       ${tw`overflow-hidden h-full grid lg:grid-cols-2`}
     }
 
@@ -21,10 +21,18 @@ const StyledMain = styled.main.attrs({
     .card {
       z-index: 1;
       ${tw`bg-green-700 rounded shadow-lg p-8 m-8`}
-    }
 
-    h1{
-      ${tw`text-4xl font-bold`}
+      h1 {
+        ${tw`text-4xl font-bold`}
+      }
+      
+      p {
+        ${tw`text-xl my-4`}
+      }
+
+      .button {
+        ${tw`inline-block uppercase rounded-lg font-bold shadow-lg hover:shadow-xs p-4`}
+      }
     }
 
     .animation {
@@ -33,14 +41,6 @@ const StyledMain = styled.main.attrs({
       * {
         ${tw`select-none cursor-default`}
       }
-    }
-
-    p {
-      ${tw`text-xl my-4`}
-    }
-
-    .button {
-      ${tw`inline-block uppercase rounded-lg font-bold shadow-lg hover:shadow-xs p-4`}
     }
   }
 `

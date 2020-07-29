@@ -1,11 +1,9 @@
 import React from "react"
 import StyledMain from "./style"
 import Animation from 'components/Animation'
-import Reports from 'components/Reports'
-import News from 'components/News'
+import CountriesData from 'components/CountriesData'
 
 function Main(props) {
-  console.log(process.env || "AAAAAAAAAAAAAAAAAAAAAAA");
   return (
     <StyledMain>
 
@@ -19,7 +17,7 @@ function Main(props) {
         </ul>
       </nav>
 
-      <header>
+      {/* <header>
 
         <div className="col lg:order-1">
           <div className="card">
@@ -30,21 +28,13 @@ function Main(props) {
         </div>
 
         <div className="col lg:order-2 p-20 lg:p-0">
-          {/* <Animation /> */}
+          <Animation />
         </div>
 
-      </header>
+      </header> */}
       <main className="flex flex-col">
 
-        <section id="news">
-          <h2>News</h2>
-          <News />
-        </section>
-
-        <section id="reports">
-          <h2>Reports</h2>
-          {/* <Reports /> */}
-        </section>
+        <CountriesData />
 
         <section id="about">
           <h2>About</h2>

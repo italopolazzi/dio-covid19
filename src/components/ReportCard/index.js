@@ -1,40 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import StyledReportCard from './style'
-import Api from 'commons/api/CoronaVirus19'
 
-
-const ReportCard = ({ country }) => {
-  const [data, setData] = useState(null)
-
-  useEffect(() => {
-    Api.getCountryReports(country).then(data => setData(data))
-  }, [])
-
-  const ApiData = () => {
-
-    if (data) {
-      return (
-        Object.keys(data).map(key => {
-          return (
-            <div key={key} class="api-data">
-              <div className="text-3xl font-bold">{key}</div>
-              <div className="text-xl">{data[key]}</div>
-            </div>
-          )
-        })
-      )
-    }
-
-    return (
-      <>
-        No available data
-      </>
-    )
-  }
+const ReportCard = ({ datum }) => {
+  const { key, value } = datum
 
   return (
     <StyledReportCard>
-      <ApiData />
+      <div className="api-data">
+        <div className="bg-white font-semibold left-0 p-4 rounded-full shadow text-center uppercase">{key}</div>
+        <div className="font-serif p-8 text-6xl">{value}</div>
+      </div>
     </StyledReportCard>
   )
 }

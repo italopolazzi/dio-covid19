@@ -1,7 +1,7 @@
 const { REACT_APP_NEWS_API_KEY } = process.env
 
 const newsApiPath = country => `https://newsapi.org/v2/top-headlines?q=COVID&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_API_KEY}&pageSize=20&page=1&country=${country}`
-const reportsApiPath = country => `https://coronavirus-19-api.herokuapp.com/countries&country=${encodeURI(country)}`
+const reportsApiPath = country => `https://coronavirus-19-api.herokuapp.com/countries/${encodeURI(country)}`
 
 
 const headers = {
