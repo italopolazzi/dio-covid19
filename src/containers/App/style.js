@@ -3,7 +3,7 @@ import tw from 'twin.macro'
 
 const background_color = 'bg-white'
 
-const StyledMain = styled.main.attrs({
+const StyledApp = styled.main.attrs({
   className: `main-content ${background_color}`
 })`
   & {
@@ -45,4 +45,4 @@ const StyledMain = styled.main.attrs({
   }
 `
 
-export default StyledMain
+export default StyledApp
