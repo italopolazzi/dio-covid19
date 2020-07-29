@@ -7,11 +7,6 @@ const StyledMain = styled.main.attrs({
   className: `main-content ${background_color}`
 })`
   & {
-    #country-code {
-      position: relative;
-      margin-top: -4rem;
-      top: 4rem;
-    }
     overflow-x: hidden;
     ${tw`h-full lg:h-screen`}
 

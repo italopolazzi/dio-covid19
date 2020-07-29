@@ -1,24 +1,35 @@
 import React, { useState, useRef, useEffect } from "react"
 import StyledMain from "./style"
 import Animation from 'components/Animation'
+import CodeList from 'components/CodeList'
 import CountriesData from 'components/CountriesData'
 import countries from 'commons/constants/countries'
 
 
 function Main(props) {
+  const [dialog, setDialog] = useState(false)
   const [country, setCountry] = useState(countries.gb)
   const countryCodeRef = useRef()
-  
+
+
   useEffect(() => {
     countryCodeRef.current.focus()
   }, [])
 
-  const handleChange = event => {
+  const handleInput = event => {
     const code = event.target.value
+    if (!code.match(/[A-Za-z]/g)) {
+      event.target.value = ''
+    }
+  }
+  
+  const handleChange = event => {
+    const code = event.target.value.toLowerCase()
     if (code.length === 2 && countries[code]) {
       setCountry(countries[code])
     }
   }
+
   return (
     <StyledMain>
 
@@ -36,11 +47,11 @@ function Main(props) {
           <div className="card">
             <h1>Covid-19</h1>
             <p>Search here for Reports and News about a country</p>
-            <div className="input">
+            <div className="input my-4">
               <label htmlFor="country-code" className="sr-only">Country code</label>
-              <input ref={countryCodeRef} id="country-code" className="font-mono outline-none p-4 rounded-full shadow-2xl shadow-xl text-3xl uppercase w-full" onChange={handleChange} />
+              <input maxLength="2" minLength="2" onInput={handleInput} ref={countryCodeRef} id="country-code" className="font-mono outline-none p-4 rounded-full shadow-2xl text-3xl uppercase w-full" onChange={handleChange} />
             </div>
-            {/* <a className="button" href="#">See reports</a> */}
+            <button onClick={() => setDialog(true)} className="block font-semibold text-blue-400 text-right" href="#">See the available codes list</button>
           </div>
         </div>
 
@@ -52,7 +63,8 @@ function Main(props) {
 
       <main className="flex flex-col">
 
-        <CountriesData country={country} />
+        <CodeList open={dialog} closeCallback={() => setDialog(false)} />
+        {/* <CountriesData country={country} /> */}
 
         <section id="about">
           <h2>About</h2>
