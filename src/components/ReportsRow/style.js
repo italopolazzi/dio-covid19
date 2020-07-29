@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import tw from 'twin.macro'
 
 const StyledReportsRow = styled.div.attrs({
-  // className: `reports-row flex overflow-x-auto`
-  className: `reports-row grid grid-cols-3`
+  className: `flex overflow-y-hidden overflow-x-auto`,
+  id: "reports-row"
 })``
 
 export default StyledReportsRow

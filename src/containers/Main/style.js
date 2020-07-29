@@ -7,6 +7,11 @@ const StyledMain = styled.main.attrs({
   className: `main-content ${background_color}`
 })`
   & {
+    #country-code {
+      position: relative;
+      margin-top: -4rem;
+      top: 4rem;
+    }
     overflow-x: hidden;
     ${tw`h-full lg:h-screen`}
 
@@ -20,7 +25,7 @@ const StyledMain = styled.main.attrs({
 
     .card {
       z-index: 1;
-      ${tw`bg-green-700 rounded shadow-lg p-8 m-8`}
+      ${tw`bg-white rounded shadow-2xl p-8 m-8`}
 
       h1 {
         ${tw`text-4xl font-bold`}
