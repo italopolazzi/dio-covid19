@@ -4,7 +4,9 @@ import AppNav from './AppNav'
 import AppHeader from './AppHeader'
 import CountriesData from 'components/CountriesData'
 import countries from 'commons/constants/countries'
+import InfoCard from 'components/InfoCard'
 
+import AnimationWearMask from 'commons/animations/17895-wear-mask.json'
 
 function App(props) {
   const [country, setCountry] = useState(countries.br)
@@ -21,9 +23,24 @@ function App(props) {
 
         <section id="about">
           <h2>About</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sequi non, quo similique, consequatur enim ducimus voluptatum repellendus libero expedita totam maxime recusandae error impedit facilis aut. Minima, asperiores saepe?
-          </p>
+
+
+          <div className="grid grid-cols-3 w-full">
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+            <InfoCard animationData={AnimationWearMask} />
+          </div>
+
         </section>
 
       </main>

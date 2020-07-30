@@ -35,7 +35,7 @@ const StyledApp = styled.main.attrs({
       }
     }
 
-    .animation {
+    & > .animation {
       z-index: 0;
       transform: scale(-2) rotateX(180deg);
       * {

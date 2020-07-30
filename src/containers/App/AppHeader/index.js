@@ -4,6 +4,7 @@ import StyledAppHeader from './style'
 import Animation from 'components/Animation'
 import CodeList from 'components/CodeList'
 import countries from 'commons/constants/countries'
+import animationData from 'commons/animations/26428-covid-19-protect.json'
 
 import { motion } from "framer-motion"
 
@@ -97,7 +98,7 @@ function AppHeader({ onCountryCodeInput }) {
         animate={{ scale: 1 }}
         transition={{ ease: 'easeOut', delay: 1, duration: 2, type: 'spring', stiffness: 50 }}
       >
-        <Animation />
+        <Animation animationData={animationData} />
       </motion.div>
 
       <CodeList open={dialog} closeCallback={() => setDialog(false)} />

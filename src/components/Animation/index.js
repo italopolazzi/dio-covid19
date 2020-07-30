@@ -1,14 +1,13 @@
 import React from "react"
 import Lottie from 'lottie-react-web'
 import AnimationStyled from './style'
-import animationData from 'commons/animations/26428-covid-19-protect.json'
 
-const Animation = () => {
+const Animation = ({ animationData }) => {
   return (
     <AnimationStyled>
       <Lottie
         options={{
-          animationData: animationData,
+          animationData,
           loop: true,
         }}
       />
