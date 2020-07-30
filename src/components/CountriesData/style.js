@@ -8,8 +8,12 @@ const StyledCountriesData = styled.section.attrs({
     
     #news-row,
     #reports-row {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE 10+ */
       &::-webkit-scrollbar {
-        display: none
+        display: none;
+        width: 0px;
+        background: transparent; /* Chrome/Safari/Webkit */
       }
     }
   }
