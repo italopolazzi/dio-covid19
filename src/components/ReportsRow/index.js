@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import StyledReportsRow from './style'
 import ReportCard from 'components/ReportCard'
 import Api from 'commons/api/CoronaVirus19'
+import useHorizontalSlider from 'commons/hooks/useHorizontalSlider'
 
 const ReportsRow = ({ country }) => {
   const [data, setData] = useState(null)
@@ -18,8 +19,11 @@ const ReportsRow = ({ country }) => {
 
   }
 
+  const reportsRowRef = useHorizontalSlider()
+  
+
   return (
-    <StyledReportsRow>
+    <StyledReportsRow ref={reportsRowRef}>
       <ApiData />
     </StyledReportsRow>
   )
