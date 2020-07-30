@@ -2,6 +2,8 @@ import React from 'react'
 import StyledInfoCard from './style'
 import Animation from 'components/Animation'
 
+import { motion } from 'framer-motion'
+
 
 const InfoCard = ({ animationData }) => {
 
