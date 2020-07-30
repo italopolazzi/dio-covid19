@@ -7,7 +7,7 @@ import countries from 'commons/constants/countries'
 
 
 function App(props) {
-  const [country, setCountry] = useState(countries.gb)
+  const [country, setCountry] = useState(countries.br)
 
   return (
     <StyledApp>

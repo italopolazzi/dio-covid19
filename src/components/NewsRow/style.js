@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import tw from 'twin.macro'
 
 const StyledNewsRow = styled.div.attrs({
-  className: `flex`,
+  className: `flex overflow-x-auto cursor-pointer`,
   id: "news-row"
 })`
  & {

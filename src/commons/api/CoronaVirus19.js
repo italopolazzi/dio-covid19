@@ -1,4 +1,9 @@
+import news_response from 'commons/constants/news_response'
+import reports_response from 'commons/constants/reports_response'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 const { REACT_APP_NEWS_API_KEY } = process.env
+
 
 const newsApiPath = country => `https://newsapi.org/v2/top-headlines?q=COVID&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_API_KEY}&pageSize=20&page=1&country=${country}`
 const reportsApiPath = country => `https://coronavirus-19-api.herokuapp.com/countries/${encodeURI(country)}`
@@ -11,12 +16,20 @@ const headers = {
 }
 
 const getCountryReports = async (country) => {
+  if (isDevelopment) {
+    return reports_response
+  }
+
   const response = await fetch(reportsApiPath(country), headers)
   const json = await response.json()
   return json
 }
 
 const getCountryNews = async (country) => {
+  if (isDevelopment) {
+    return news_response.articles
+  }
+
   const response = await fetch(newsApiPath(country), headers)
   const json = await response.json()
   return json.articles
