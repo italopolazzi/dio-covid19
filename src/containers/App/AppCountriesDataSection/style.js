@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
-const StyledCountriesData = styled.section.attrs({
-  className: `news`
+const StyledAppCountriesDataSection = styled.section.attrs({
+  id: "countries-data-section"
 })`
   & {
     
@@ -20,4 +20,4 @@ const StyledCountriesData = styled.section.attrs({
 
 `
 
-export default StyledCountriesData
+export default StyledAppCountriesDataSection
