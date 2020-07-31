@@ -6,11 +6,11 @@ import { motion } from 'framer-motion'
 
 import { ResponsiveConditional } from 'commons/contexts/responsive'
 
-const InfoCard = ({ backgroundColor, animationData, title }) => {
+const InfoCard = ({ backgroundColor, animationData, title, index }) => {
 
-  // const style = {
-  //   backgroundColor
-  // }
+  const isEvenRow = () => index % 2
+  const getIndexRowSpecialClass = () => isEvenRow() ? 'even-row' : 'odd-row'
+
   const style = {
     backgroundColor: backgroundColor || 'currentColor'
   }
@@ -18,21 +18,16 @@ const InfoCard = ({ backgroundColor, animationData, title }) => {
   return (
     <StyledInfoCard>
 
-      <article className="md:h-screen relative p-8 flex flex-col justify-center items-center" >
-
-        <div className="shadow-2xl p-4 rounded-full w-64 h-64 overflow-hidden">
-          <Animation animationData={animationData} />
-        </div>
-
-
+      <article className="relative p-8 flex flex-col justify-center items-center" >
 
         <ResponsiveConditional medias={['smAndDown']}>
+          <div className="shadow-2xl p-4 rounded-full w-64 h-64 overflow-hidden">
+            <Animation animationData={animationData} />
+          </div>
           <div className="w-full flex flex-col items-center text-center justify-center">
             <div className="text-4xl mt-8 font-bold font-serif">
               {title}
             </div>
-
-
             <p className="my-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum odit asperiores atque enim repudiandae nemo et minus deleniti aspernatur aut laborum expedita dolorem commodi ducimus, architecto corporis facilis dolore dicta.
           </p>
@@ -41,18 +36,25 @@ const InfoCard = ({ backgroundColor, animationData, title }) => {
         </ResponsiveConditional>
 
         <ResponsiveConditional medias={['mdAndUp']}>
-        <div className="flex w-full items-center text-center justify-center">
-            <div className="text-4xl mt-8 mb-4 font-bold font-serif w-1/2">
-              {title}
+          <div className={`flex items-center ${getIndexRowSpecialClass()}`}>
+
+            <div className="w-1/2 flex items-center justify-center">
+              <div className="shadow-2xl p-4 rounded-full w-64 h-64 overflow-hidden">
+                <Animation animationData={animationData} />
+              </div>
             </div>
 
-            <div className="w-8 h-8 rounded-full mx-8 flex-shrink-0" style={style} />
+            <div className="w-1/2 p-8 flex flex-col items-center justify-center">
+              <div className="text-4xl mt-8 font-bold font-serif">{title}</div>
+              <p className="my-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum odit asperiores atque enim repudiandae nemo et minus deleniti aspernatur aut laborum expedita dolorem commodi ducimus, architecto corporis facilis dolore dicta.
+                </p>
+              <div className="w-8 h-8 rounded-full mx-8 flex-shrink-0" style={style} />
+            </div>
 
-            <p className="w-1/2 p-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum odit asperiores atque enim repudiandae nemo et minus deleniti aspernatur aut laborum expedita dolorem commodi ducimus, architecto corporis facilis dolore dicta.
-          </p>
-             <div className="w-8 h-8 rounded-full mx-8 flex-shrink-0" style={style} />
           </div>
+
+
         </ResponsiveConditional>
 
 

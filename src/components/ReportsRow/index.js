@@ -14,13 +14,13 @@ const ReportsRow = ({ country }) => {
   const ApiData = () => {
 
     if (!data) return <span>No available data</span>
-    
-    return Object.keys(data).map(key => <ReportCard key={key} datum={{ key, value: data[key] }} />)
+
+    return Object.keys(data).map((key, index) => <ReportCard key={key} datum={{ key, index, value: data[key] }} />)
 
   }
 
   const reportsRowRef = useHorizontalSlider()
-  
+
 
   return (
     <StyledReportsRow ref={reportsRowRef}>

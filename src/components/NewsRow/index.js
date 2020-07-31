@@ -17,7 +17,7 @@ const NewsRow = ({ country }) => {
   }
 
   const newsRowRef = useHorizontalSlider()
-  
+
   return (
     <div className="flex flex-col">
       <StyledNewsRow ref={newsRowRef}>
