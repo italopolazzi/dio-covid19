@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import StyledApp from "./style"
-import AppNav from './AppNav'
-import AppHeader from './AppHeader'
-import CountriesData from 'components/CountriesData'
-import countries from 'commons/constants/countries'
+// import AppNav from './AppNav'
+// import AppHeader from './AppHeader'
+// import CountriesData from 'components/CountriesData'
+// import countries from 'commons/constants/countries'
 import InfoCard from 'components/InfoCard'
 
 import AnimationWorkFromHome from 'commons/animations/17893-work-from-home.json'
@@ -16,41 +16,89 @@ import AnimationNamasteNoShakeHands from 'commons/animations/17900-namaste-no-sh
 import AnimationForeheadTester from 'commons/animations/17901-forehead-tester.json'
 import AnimationCovid19 from 'commons/animations/17902-covid19.json'
 
+import { ResponsiveProvider, ResponsiveConditional } from 'commons/contexts/responsive'
+
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from 'tailwind.config.js'
+const fullConfig = resolveConfig(tailwindConfig)
+
+const infoCardsData = [
+  {
+    backgroundColor: "#DCDBFF",
+    animationData: AnimationWorkFromHome,
+    title: <h1>Keep it simpled stupid!</h1>
+  },
+  {
+    backgroundColor: "#FFC416",
+    animationData: AnimationSneezing,
+    title: <h1>Ipsum dolor sit amet consectetur adipisicing elit</h1>
+  },
+  {
+    backgroundColor: "#FFDEC5",
+    animationData: AnimationWashYourHands,
+    title: <h1>Temporibus eius distinctio et explicabo odio delectus?</h1>
+  },
+  {
+    backgroundColor: "#FF4F7B",
+    animationData: AnimationTemperatureMeter,
+    title: <h1>Totam, nobis? </h1>
+  },
+  {
+    backgroundColor: "#A3FBEE",
+    animationData: AnimationWearMask,
+    title: <h1>Impedit esse quod, porro dicta</h1>
+  },
+  {
+    backgroundColor: "#F19FBD",
+    animationData: AnimationHandSanitizer,
+    title: <h1>Omnis autem eligendi repellat nostrum fugit</h1>
+  },
+  {
+    backgroundColor: "#FFDC00",
+    animationData: AnimationNamasteNoShakeHands,
+    title: <h1>Ipsum dolor sit amet consectetur adipisicing elit</h1>
+  },
+  {
+    backgroundColor: "#4ADF80",
+    animationData: AnimationCovid19,
+    title: <h1>Keep it simpled stupid!</h1>
+  },
+  {
+    backgroundColor: "#FFBD85",
+    animationData: AnimationForeheadTester,
+    title: <h1>Temporibus eius distinctio et explicabo odio delectus?</h1>
+  },
+]
+
 function App(props) {
-  const [country, setCountry] = useState(countries.br)
-
   return (
-    <StyledApp>
-      <AppNav />
-      <AppHeader onCountryCodeInput={v => setCountry(v)} />
+    <ResponsiveProvider breakpointsConfig={fullConfig.theme.screens}>
+      <StyledApp>
+        {/* <AppNav /> */}
+        {/* <AppHeader onCountryCodeInput={v => setCountry(v)} /> */}
 
-      <main className="flex flex-col">
-
-
-        <CountriesData country={country} />
-
-        <section id="about">
-          <h2>About</h2>
+        <main className="flex flex-col">
 
 
-          <div className="grid grid-cols-3 w-full">
+          {/* <CountriesData country={country} /> */}
 
-            <InfoCard animationData={AnimationWorkFromHome} />
-            <InfoCard animationData={AnimationWearMask} />
-            <InfoCard animationData={AnimationWashYourHands} />
-            <InfoCard animationData={AnimationTemperatureMeter} />
-            <InfoCard animationData={AnimationSneezing} />
-            <InfoCard animationData={AnimationHandSanitizer} />
-            <InfoCard animationData={AnimationNamasteNoShakeHands} />
-            <InfoCard animationData={AnimationForeheadTester} />
-            <InfoCard animationData={AnimationCovid19} />
+          <section id="about">
+            <h2>About</h2>
 
-          </div>
 
-        </section>
+            <div className="grid  w-full">
 
-      </main>
-    </StyledApp>
+              {infoCardsData.map((datum, index) => <InfoCard key={index} {...datum} />)}
+
+
+            </div>
+
+          </section>
+
+        </main>
+      </StyledApp>
+
+    </ResponsiveProvider>
   )
 }
 
