@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import StyledAppHeader from './style'
 import Animation from 'components/Animation'
+import Dialog from 'components/Dialog'
 import CodeList from 'components/CodeList'
 import countries from 'commons/constants/countries'
 import animationData from 'commons/animations/26428-covid-19-protect.json'
@@ -42,13 +43,18 @@ const textVariants = {
 }
 
 function AppHeader({ onCountryCodeInput }) {
-  const [dialog, setDialog] = useState(false)
-
   const countryCodeRef = useRef()
 
   useEffect(() => {
     countryCodeRef.current.focus()
   }, [])
+
+  const dialogActivator = callback => (
+    <button
+      onClick={event => callback(event)}
+      className="block font-semibold text-blue-400 text-right"
+    >See the available codes list</button>
+  )
 
   const handleInput = event => {
     const code = event.target.value
@@ -84,10 +90,9 @@ function AppHeader({ onCountryCodeInput }) {
               onChange={handleChange} />
           </div>
 
-          <button
-            onClick={() => setDialog(true)}
-            className="block font-semibold text-blue-400 text-right"
-          >See the available codes list</button>
+          <Dialog activator={dialogActivator} >
+            <CodeList />
+          </Dialog>
 
         </div>
       </motion.div>
@@ -100,8 +105,6 @@ function AppHeader({ onCountryCodeInput }) {
       >
         <Animation animationData={animationData} />
       </motion.div>
-
-      <CodeList open={dialog} closeCallback={() => setDialog(false)} />
 
     </StyledAppHeader>
   )
