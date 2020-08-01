@@ -5,7 +5,7 @@ import Animation from 'components/Animation'
 import Dialog from 'components/Dialog'
 import CodeList from 'components/CodeList'
 import countries from 'commons/constants/countries'
-import animationData from 'commons/animations/26428-covid-19-protect.json'
+import animationData from 'commons/animations/18795-coronavirus.json'
 
 import { motion } from "framer-motion"
 

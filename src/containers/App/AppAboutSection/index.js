@@ -65,12 +65,17 @@ function AppAboutSection(props) {
 
   return (
     <StyledAppAboutSection {...props}>
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <h1 className="text-6xl font-thin font-serif">About</h1>
-          </div>
+      <div className="container mx-auto px-4 about-section">
+
+        <div className="text-4xl font-thin font-serif about-exclamation">
+          <div className="l1">A</div>
+          <div className="l2">b</div>
+          <div className="l3">o</div>
+          <div className="l4">u</div>
+          <div className="l5">t</div>
+          <div className="l6">●</div>
         </div>
+
       </div>
       <div className="w-full">
         {infoCardsData.map((datum, index) => <InfoCard key={index} index={index} {...datum} />)}

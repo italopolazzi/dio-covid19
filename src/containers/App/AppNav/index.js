@@ -6,6 +6,7 @@ function AppNav(props) {
   return (
     <StyledAppNav>
       <ul className="flex">
+        <li className="p-4"><a href="#app-header">Start</a></li>
         <li className="p-4"><a href="#news-row">News</a></li>
         <li className="p-4"><a href="#reports-row">Reports</a></li>
         <li className="p-4"><a href="#about-section">About</a></li>

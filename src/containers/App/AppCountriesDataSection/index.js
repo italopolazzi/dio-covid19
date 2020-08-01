@@ -22,7 +22,7 @@ const AppCountriesDataSection = ({ country }) => {
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex items-center">
             <img src={`https://www.countryflags.io/${country.code}/flat/64.png`}></img>
-            <h1 className="text-6xl font-thin font-serif ml-8">{country.name}</h1>
+            <h1 className="text-6xl font-serif ml-8">{country.name}</h1>
           </div>
           <div className="flex items-center">
             <div className="font-thin text-2xl font-serif">Today news</div>
@@ -34,9 +34,12 @@ const AppCountriesDataSection = ({ country }) => {
       <NewsRow country={country} />
 
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-wrap justify-between items-center">
           <div className="flex items-center">
-            <h1 className="text-6xl font-thin font-serif">Reports</h1>
+            <h1 className="text-6xl font-serif">Reports</h1>
+          </div>
+          <div className="flex items-center">
+            <div className="font-thin text-2xl font-serif">Last reported data</div>
           </div>
         </div>
       </div>

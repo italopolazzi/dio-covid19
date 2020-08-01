@@ -36,7 +36,7 @@ const StyledApp = styled.div.attrs({
 
     & > .animation {
       z-index: 0;
-      transform: scale(-2) rotateX(180deg);
+      transform: scale(1) rotateX(180deg);
       * {
         ${tw`select-none cursor-default`}
       }
