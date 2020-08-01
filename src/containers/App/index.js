@@ -4,8 +4,9 @@ import StyledApp from "./style"
 
 import AppNav from './AppNav'
 import AppHeader from './AppHeader'
-import AppAboutSection from './AppAboutSection'
 import AppCountriesDataSection from './AppCountriesDataSection'
+import AppAboutSection from './AppAboutSection'
+import AppFooter from './AppFooter'
 import countries from 'commons/constants/countries'
 
 import { ResponsiveProvider } from 'commons/contexts/responsive'
@@ -26,6 +27,8 @@ function App(props) {
           <AppCountriesDataSection country={country} />
           <AppAboutSection />
         </main>
+
+        <AppFooter />
       </StyledApp>
     </ResponsiveProvider>
   )

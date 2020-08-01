@@ -3,11 +3,10 @@ import tw from 'twin.macro'
 
 const background_color = 'bg-white'
 
-const StyledApp = styled.main.attrs({
-  className: `main-content ${background_color}`
+const StyledApp = styled.div.attrs({
+  className: `main-content ${background_color} w-full relative`
 })`
   & {
-    overflow-x: hidden;
     ${tw`h-full lg:h-screen`}
 
     & > header {

@@ -72,7 +72,7 @@ function ResponsiveProvider({ children, breakpointsConfig }) {
   useLayoutEffect(() => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [handleResize])
 
   const [currentMediaQueries, setCurrentMediaQueries] = useState(mountMediaQueriesResults(breakpoints))
 
