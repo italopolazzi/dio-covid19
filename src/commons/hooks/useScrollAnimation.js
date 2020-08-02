@@ -1,7 +1,46 @@
 import React, { useState, useLayoutEffect, useRef } from 'react'
 
+const isElementVerticallyInViewport = (element) => {
+  const rect = element.getBoundingClientRect()
+  const { bottom, top } = rect
+  const height = (window.innerHeight || document.documentElement.clientHeight)
+  const height20 = height * 0.2
+  return (
+    (top <= height20 && bottom >= 0) ||
+    (bottom >= height && top >= height) ||
+    (top >= height20 && bottom <= height)
+  )
+}
+
+const isElementHorizontallyInViewport = (element) => {
+  const rect = element.getBoundingClientRect()
+  let { right, left } = rect
+  const width = (window.innerWidth || document.documentElement.clientWidth)
+  const width20 = width * 0.2
+  return (
+    (left >= -width20 && right <= 0) ||
+    (right >= width && left <= width) ||
+    (left >= -width20 && right <= width)
+  )
+}
+
+const isElementInViewport = (element) => {
+  return isElementHorizontallyInViewport(element) && isElementVerticallyInViewport(element)
+}
+
+const getViewportTester = direction => {
+  switch (direction) {
+    case "horizontal":
+      return isElementHorizontallyInViewport;
+    case "vertical":
+      return isElementVerticallyInViewport;
+    default:
+      return isElementInViewport
+  }
+}
+
 function useScrollAnimation(
-  { visible_class_name = "is-visible" } = {}
+  { visible_class_name = "is-visible", direction = "horizontal" } = {}
 ) {
   const [currentElement, setCurrentElement] = useState(null)
 
@@ -11,43 +50,22 @@ function useScrollAnimation(
     setTimeout(callback, 1000 / 60);
   }
 
-  // const isElementInViewport = (element) => {
-  //   const rect = element.getBoundingClientRect()
-  //   const { bottom, top } = rect
-  //   const height = (window.innerHeight || document.documentElement.clientHeight)
+  const inViewportTester = getViewportTester(direction)
 
-  //   return (
-  //     (top <= 0 && bottom >= 0) ||
-  //     (bottom >= height && top >= height) ||
-  //     (top >= 0 && bottom <= height)
-  //   )
-  // }
-  const isElementInViewport = (element) => {
-    const rect = element.getBoundingClientRect()
-    let { right, left } = rect
-    const width = (window.innerWidth || document.documentElement.clientWidth)
-    const width20 = width * 0.2
-    return (
-      (left >= -width20 && right <= 0) ||
-      (right >= width && left <= width) ||
-      (left >= -width20 && right <= width)
-    )
-  }
-
-  const toogleVerticalClass = () => {
+  const toogleClass = () => {
     const element = currentElement
-    if (isElementInViewport(element)) {
+    if (inViewportTester(element)) {
       element.classList.add(visible_class_name)
     } else {
       element.classList.remove(visible_class_name)
     }
-    scroll(toogleVerticalClass)
+    scroll(toogleClass)
   }
 
   useLayoutEffect(() => {
     setCurrentElement(elementToAnimateRef.current)
     if (currentElement) (
-      toogleVerticalClass()
+      toogleClass()
     )
   }, [currentElement])
 

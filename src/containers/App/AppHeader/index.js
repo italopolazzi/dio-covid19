@@ -7,53 +7,23 @@ import CodeList from 'components/CodeList'
 import countries from 'commons/constants/countries'
 import animationData from 'commons/animations/18795-coronavirus.json'
 
-import { motion } from "framer-motion"
-
-const cardVariants = {
-  hidden: {
-    x: '-100vw',
-    opacity: 0
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 50,
-      delay: 0.5,
-      when: 'beforeChildren'
-    }
-  }
-}
-
-const textVariants = {
-  hidden: {
-    y: '-1rem',
-    opacity: 0
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'twin',
-      delay: 0.3,
-      duration: 0.3
-    }
-  }
-}
+import useScrollAnimation from 'commons/hooks/useScrollAnimation'
 
 function AppHeader({ onCountryCodeInput }) {
+
   const countryCodeRef = useRef()
+  const headerCardRef = useScrollAnimation({ direction: "vertical" })
+  const headerAnimationRef = useScrollAnimation({ direction: "vertical" })
 
   useEffect(() => {
     countryCodeRef.current.focus()
   }, [])
 
-  const dialogActivator = callback => (
+  const dialogActivator = label => callback => (
     <button
       onClick={event => callback(event)}
       className="block font-semibold text-blue-400 text-right"
-    >See the available codes list</button>
+    >{label}</button>
   )
 
   const handleInput = event => {
@@ -72,7 +42,8 @@ function AppHeader({ onCountryCodeInput }) {
 
   return (
     <StyledAppHeader>
-      <motion.div className="col lg:order-1" variants={cardVariants}>
+
+      <div ref={headerCardRef} className="header-card col lg:order-1" >
         <div className="card">
           <h1>Covid-19</h1>
           <p>Search here for Reports and News about a country</p>
@@ -90,21 +61,16 @@ function AppHeader({ onCountryCodeInput }) {
               onChange={handleChange} />
           </div>
 
-          <Dialog activator={dialogActivator} >
+          <Dialog activator={dialogActivator("See the available codes list")} >
             <CodeList />
           </Dialog>
 
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        className="col lg:order-2 p-20 lg:p-0"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ ease: 'easeOut', delay: 1, duration: 2, type: 'spring', stiffness: 50 }}
-      >
+      <div ref={headerAnimationRef} className="header-animation col lg:order-2 p-20 lg:p-0" >
         <Animation animationData={animationData} />
-      </motion.div>
+      </div>
 
     </StyledAppHeader>
   )
