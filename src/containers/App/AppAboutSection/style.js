@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import tw from 'twin.macro'
 
 const StyledAppAboutSection = styled.section.attrs({
-  id: "about-section"
+  id: "app-about-section"
 })`
   .about-section {
     ${tw`h-screen w-full flex justify-center items-center`}

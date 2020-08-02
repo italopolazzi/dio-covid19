@@ -18,32 +18,34 @@ const AppCountriesDataSection = ({ country }) => {
   return (
     <StyledAppCountriesDataSection>
 
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-between items-center">
-          <div className="flex items-center">
-            <img src={`https://www.countryflags.io/${country.code}/flat/64.png`}></img>
-            <h1 className="text-6xl font-serif ml-8">{country.name}</h1>
-          </div>
-          <div className="flex items-center">
-            <div className="font-thin text-2xl font-serif">Today news</div>
-            <div className="h-4 w-4 mx-4 rounded-full bg-yellow-400"></div>
-            <time className="font-thin text-2xl font-serif" datatime={Date.now()}>{getDate(Date.now())}</time>
+      <section id="reports">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-between items-center">
+            <div className="flex items-center">
+              <img src={`https://www.countryflags.io/${country.code}/flat/64.png`}></img>
+              <h1 className="text-3xl font-serif  ml-8">Reports</h1>
+            </div>
+            <div className="flex items-center">
+              <div className="font-thin text-2xl font-serif">Last data</div>
+            </div>
           </div>
         </div>
-      </div>
-      <NewsRow country={country} />
+        <ReportsRow country={country} />
+      </section>
 
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-between items-center">
-          <div className="flex items-center">
-            <h1 className="text-6xl font-serif">Reports</h1>
-          </div>
-          <div className="flex items-center">
-            <div className="font-thin text-2xl font-serif">Last reported data</div>
+      <section id="news">
+        <div className="container mx-auto mt-8 px-4">
+          <div className="flex flex-wrap justify-start items-center">
+            <div className="flex items-center">
+              <div className="font-thin text-2xl font-serif">Today news</div>
+              <div className="h-4 w-4 mx-4 rounded-full bg-green-400"></div>
+              <time className="font-thin text-2xl font-serif" datatime={Date.now()}>{getDate(Date.now())}</time>
+            </div>
           </div>
         </div>
-      </div>
-      <ReportsRow country={country} />
+        <NewsRow country={country} />
+      </section>
+
 
     </StyledAppCountriesDataSection>
   )
