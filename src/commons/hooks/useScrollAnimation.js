@@ -26,10 +26,11 @@ function useScrollAnimation(
     const rect = element.getBoundingClientRect()
     let { right, left } = rect
     const width = (window.innerWidth || document.documentElement.clientWidth)
+    const width20 = width * 0.2
     return (
-      (left >= 0 && right <= 0) ||
+      (left >= -width20 && right <= 0) ||
       (right >= width && left <= width) ||
-      (left >= 0 && right <= width)
+      (left >= -width20 && right <= width)
     )
   }
 
