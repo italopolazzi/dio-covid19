@@ -2,6 +2,8 @@ import React from 'react'
 import StyledInfoSection from './style'
 import Animation from 'components/Animation'
 
+import useScrollAnimation from 'commons/hooks/useScrollAnimation'
+
 import { ResponsiveConditional } from 'commons/contexts/responsive'
 
 const InfoSection = ({ backgroundColor, prevColor, animationData, title, index }) => {
@@ -9,12 +11,14 @@ const InfoSection = ({ backgroundColor, prevColor, animationData, title, index }
   const isEvenRow = () => index % 2
   const getIndexRowSpecialClass = () => isEvenRow() ? 'even-row' : 'odd-row'
 
+  const sectionRef = useScrollAnimation({ direction: 'vertical' })
+
   const style = {
     backgroundColor: backgroundColor || 'currentColor'
   }
 
   return (
-    <StyledInfoSection prevColor={prevColor}>
+    <StyledInfoSection ref={sectionRef} prevColor={prevColor}>
       <article className="info-section__article" style={{ backgroundColor }} >
 
         <ResponsiveConditional medias={['smAndDown']}>
