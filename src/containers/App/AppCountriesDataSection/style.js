@@ -6,8 +6,8 @@ const StyledAppCountriesDataSection = styled.section.attrs({
 })`
   & {
     
-    #news-row,
-    #reports-row {
+    .news-row,
+    .reports-row {
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none;  /* IE 10+ */
       &::-webkit-scrollbar {

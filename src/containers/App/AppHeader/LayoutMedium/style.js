@@ -7,7 +7,7 @@ const StyledLayoutMedium = styled.div.attrs({
   & {
 
     .header-content {
-      ${tw`bg-blue-400 flex items-center justify-center w-full h-full overflow-hidden lg:order-1`}
+      ${tw`bg-blue-400 rounded-b-full flex items-center justify-center w-full h-full overflow-hidden lg:order-1`}
 
       .header-title {
         ${tw`text-6xl font-black font-serif`}

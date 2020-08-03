@@ -17,7 +17,7 @@ const infoCardsData = [
   {
     backgroundColor: "#DCDBFF",
     animationData: AnimationWorkFromHome,
-    title: <h1>Keep it simpled stupid!</h1>
+    title: <h1>Lorem ipsum dolor it erlo!</h1>
   },
   {
     backgroundColor: "#FFC416",
@@ -52,7 +52,7 @@ const infoCardsData = [
   {
     backgroundColor: "#4ADF80",
     animationData: AnimationCovid19,
-    title: <h1>Keep it simpled stupid!</h1>
+    title: <h1>Lorem ipsum dolor it erlo!</h1>
   },
   {
     backgroundColor: "#FFBD85",
