@@ -77,7 +77,7 @@ function AppAboutSection(props) {
 
   return (
     <StyledAppAboutSection {...props}>
-      {/* <div className="about-section">
+      <div className="about-section">
 
         <div className="text-4xl font-thin font-serif about-exclamation">
           <div className="l1">A</div>
@@ -88,7 +88,7 @@ function AppAboutSection(props) {
           <div className="l6">●</div>
         </div>
 
-      </div> */}
+      </div>
       <div className="w-full">
         {infoSectionList}
       </div>
