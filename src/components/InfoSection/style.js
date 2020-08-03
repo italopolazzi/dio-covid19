@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
-const StyledInfoSection = styled.div.attrs({
-  className: `info-card`
+const StyledInfoSection = styled.section.attrs({
+  className: `info-section`
 })`
 
   .even-row > :first-child {
@@ -15,9 +15,13 @@ const StyledInfoSection = styled.div.attrs({
   
   .info-section__sheet {
     ${tw`flex flex-col items-center justify-center`}
+
+    will-change: opacity;
+    transition: opacity .3s .25s ease-out;
+    opacity: 0;
   }
 
-  .info-section__content {
+  .info-section__content {  
     ${tw`my-4`}
   }
 
@@ -54,10 +58,38 @@ const StyledInfoSection = styled.div.attrs({
 
   .info-section__animation {
     ${tw`shadow-2xl p-4 rounded-full w-64 h-64 overflow-hidden`}
+    will-change: transform, opacity;
+    transition: transform .3s .55s ease-out,
+                opacity .3s .55s ease-out;
+    transform: scale(0) translateX(0); // default
+    opacity: 0;
+  }
+
+  .even-row {
+    .info-section__animation {
+      transform: scale(1) translateX(-100%);
+    }
+  }
+
+  .odd-row {
+    .info-section__animation {
+      transform: scale(1) translateX(100%);
+    }
   }
 
   .info-section__dot {
     ${tw`w-8 h-8 rounded-full mx-8`}
+  }
+
+  &.is-visible {
+    .info-section__animation {
+      transform: scale(1) translateX(0);
+      opacity: 1;
+    }
+
+    .info-section__sheet {
+      opacity: 1;
+    }
   }
 
 `
