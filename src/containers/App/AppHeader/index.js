@@ -40,7 +40,9 @@ function AppHeader({ onCountryCodeInput }) {
     const code = event.target.value.toLowerCase()
     if (code.length === 2 && countries[code]) {
       onCountryCodeInput(countries[code])
-      document.querySelector("#reports").scrollIntoView(true)
+      const element = document.querySelector("#reports")
+      const y = element.getBoundingClientRect().top
+      window.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
 
