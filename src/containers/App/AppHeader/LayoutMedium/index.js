@@ -10,7 +10,9 @@ function LayoutMedium(
     dialogActivator,
     Dialog,
     CodeList,
-    image } = {}
+    image,
+    dialogTitle
+  } = {}
 ) {
 
   return (
@@ -35,7 +37,7 @@ function LayoutMedium(
               onChange={handleChange} />
           </div>
 
-          <Dialog activator={dialogActivator("See the available codes list")} >
+          <Dialog title={dialogTitle} activator={dialogActivator("See the available codes list")} >
             <CodeList />
           </Dialog>
 

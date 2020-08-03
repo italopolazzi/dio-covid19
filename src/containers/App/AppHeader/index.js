@@ -51,7 +51,8 @@ function AppHeader({ onCountryCodeInput }) {
     dialogActivator,
     Dialog,
     CodeList,
-    image
+    image,
+    dialogTitle: "Countries' Code List"
   }
 
 

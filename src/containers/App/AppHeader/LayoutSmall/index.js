@@ -9,7 +9,9 @@ function LayoutSmall(
     dialogActivator,
     Dialog,
     CodeList,
-    image } = {}
+    image,
+    dialogTitle
+  } = {}
 ) {
 
   return (
@@ -39,7 +41,7 @@ function LayoutSmall(
 
 
 
-          <Dialog activator={dialogActivator("See the available codes list")} >
+          <Dialog title={dialogTitle} activator={dialogActivator("See the available codes list")} >
             <CodeList />
           </Dialog>
 
