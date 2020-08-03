@@ -27,6 +27,9 @@ const Dialog = ({ activator, children }) => {
   const dialogContent = (
     <>
       <div className="dialog-header">
+        <div className="dialog-title" id="dialog-title">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit
+        </div>
         <button onClick={handleClose}>Close</button>
       </div>
       <div className="dialog-body">
@@ -38,7 +41,7 @@ const Dialog = ({ activator, children }) => {
   return (
     <StyledDialog>
       {activator(handleOpen)}
-      <div role="dialog" ref={dialogNodeRef}>
+      <div role="dialog" aria-labelledby="dialog-title" aria-hidden="true" ref={dialogNodeRef}>
         {focusAfterClosed && dialogContent}
       </div>
     </StyledDialog>

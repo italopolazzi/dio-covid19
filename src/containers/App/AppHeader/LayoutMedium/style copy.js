@@ -9,6 +9,16 @@ const StyledLayoutMedium = styled.div.attrs({
     .header-content {
       ${tw`bg-blue-400 flex items-center justify-center w-full h-full overflow-hidden lg:order-1`}
 
+      opacity: 0;
+      will-change: opacity;
+      transform: translateY(-100%);
+      transition: transform .5s .25s ease-out,
+                  opacity .5s .25s ease-out;
+      &.is-visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
       .header-title {
         ${tw`text-6xl font-black font-serif`}
       }

@@ -6,3 +6,8 @@
 .font-serif {
     font-family: 'Merriweather', Georgia, Cambria, "Times New Roman", Times, serif!important;
 }
+
+body.has-dialog {
+    overflow-y: hidden;
+    height: 100vh;
+}

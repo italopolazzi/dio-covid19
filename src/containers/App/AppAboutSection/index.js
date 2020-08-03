@@ -65,7 +65,7 @@ function AppAboutSection(props) {
 
   return (
     <StyledAppAboutSection {...props}>
-      <div className="container mx-auto px-4 about-section">
+      <div className="about-section">
 
         <div className="text-4xl font-thin font-serif about-exclamation">
           <div className="l1">A</div>
@@ -78,7 +78,7 @@ function AppAboutSection(props) {
 
       </div>
       <div className="w-full">
-        {infoCardsData.map((datum, index) => <InfoCard key={index} index={index} {...datum} />)}
+        {infoCardsData.map((datum, index) => <InfoCard key={index} prevColor={index > 0 && infoCardsData[index - 1].backgroundColor} index={index} {...datum} />)}
       </div>
     </StyledAppAboutSection>
   )

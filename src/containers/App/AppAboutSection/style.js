@@ -4,11 +4,15 @@ import tw from 'twin.macro'
 const StyledAppAboutSection = styled.section.attrs({
   id: "app-about-section"
 })`
+  & {
+    ${tw`bg-red-400`}
+  }
+
   .about-section {
-    ${tw`h-screen w-full flex justify-center items-center`}
+    ${tw`container mx-auto px-4 h-screen w-full flex justify-center items-center`}
   }
   .about-exclamation {
-	   ${tw`text-red-500 lowercase text-center`}
+	   ${tw`text-white lowercase text-center`}
   }
 
   --percent: 0.23;
