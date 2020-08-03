@@ -1,12 +1,10 @@
 import React from 'react'
-import StyledInfoCard from './style'
+import StyledInfoSection from './style'
 import Animation from 'components/Animation'
-
-import { motion } from 'framer-motion'
 
 import { ResponsiveConditional } from 'commons/contexts/responsive'
 
-const InfoCard = ({ backgroundColor, prevColor, animationData, title, index }) => {
+const InfoSection = ({ backgroundColor, prevColor, animationData, title, index }) => {
 
   const isEvenRow = () => index % 2
   const getIndexRowSpecialClass = () => isEvenRow() ? 'even-row' : 'odd-row'
@@ -16,54 +14,44 @@ const InfoCard = ({ backgroundColor, prevColor, animationData, title, index }) =
   }
 
   return (
-    <StyledInfoCard prevColor={prevColor}>
-
-      <article className="relative h-screen p-8 flex flex-col justify-center items-center" style={{ backgroundColor }} >
+    <StyledInfoSection prevColor={prevColor}>
+      <article className="info-section__article" style={{ backgroundColor }} >
 
         <ResponsiveConditional medias={['smAndDown']}>
-          <div className="shadow-2xl p-4 rounded-full w-64 h-64 overflow-hidden">
+          <div className="info-section__animation">
             <Animation animationData={animationData} />
           </div>
-          <div className="w-full flex flex-col items-center text-center justify-center">
-            <div className="text-4xl mt-8 font-bold font-serif">
+          <div className="info-section__sheet w-full">
+            <div className="info-section__title">
               {title}
             </div>
-            <p className="my-4">
+            <p className="info-section__content">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum odit asperiores atque enim repudiandae nemo et minus deleniti aspernatur aut laborum expedita dolorem commodi ducimus, architecto corporis facilis dolore dicta.
           </p>
-            <div className="w-8 h-8 rounded-full mx-8 flex-shrink-0 bg-black" style={style} />
           </div>
         </ResponsiveConditional>
 
         <ResponsiveConditional medias={['mdAndUp']}>
           <div className={`flex items-center ${getIndexRowSpecialClass()}`}>
-
             <div className="w-1/2 flex items-center justify-center">
-              <div className="shadow-2xl p-4 rounded-full w-64 h-64 overflow-hidden">
+              <div className="info-section__animation">
                 <Animation animationData={animationData} />
               </div>
             </div>
-
-            <div className="w-1/2 bg-white p-8 flex flex-col items-center justify-center">
-              <div className="text-4xl mt-8 font-bold font-serif">{title}</div>
-              <p className="my-4">
+            <div className="info-section__sheet w-1/2 bg-white p-8">
+              <div className="info-section__title">{title}</div>
+              <p className="info-section__content">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum odit asperiores atque enim repudiandae nemo et minus deleniti aspernatur aut laborum expedita dolorem commodi ducimus, architecto corporis facilis dolore dicta.
                 </p>
-              <div className="w-8 h-8 rounded-full mx-8 flex-shrink-0" style={style} />
+              <div className="info-section__dot" style={style} />
             </div>
-
           </div>
-
-
         </ResponsiveConditional>
 
-
-
       </article>
-
-    </StyledInfoCard>
+    </StyledInfoSection>
   )
 }
 
-export default InfoCard
+export default InfoSection
 

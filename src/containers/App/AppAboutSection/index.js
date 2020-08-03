@@ -1,7 +1,7 @@
 import React from "react"
 import StyledAppAboutSection from './style'
 
-import InfoCard from 'components/InfoCard'
+import InfoSection from 'components/InfoSection'
 
 import AnimationWorkFromHome from 'commons/animations/17893-work-from-home.json'
 import AnimationWearMask from 'commons/animations/17895-wear-mask.json'
@@ -63,6 +63,18 @@ const infoCardsData = [
 
 function AppAboutSection(props) {
 
+  const infoSectionList = (
+    infoCardsData.map((datum, index) => {
+      return <InfoSection
+        key={index}
+        prevColor={index > 0 && infoCardsData[index - 1].backgroundColor}
+        index={index}
+        {...datum}
+      />
+    })
+  )
+
+
   return (
     <StyledAppAboutSection {...props}>
       <div className="about-section">
@@ -78,7 +90,7 @@ function AppAboutSection(props) {
 
       </div>
       <div className="w-full">
-        {infoCardsData.map((datum, index) => <InfoCard key={index} prevColor={index > 0 && infoCardsData[index - 1].backgroundColor} index={index} {...datum} />)}
+        {infoSectionList}
       </div>
     </StyledAppAboutSection>
   )
