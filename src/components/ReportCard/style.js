@@ -4,8 +4,16 @@ import tw from 'twin.macro'
 const StyledReportCard = styled.div.attrs({
   className: `report-card bg-white m-4 my-8 p-4 relative rounded-lg`
 })`
+  
+  .report-card__header {
+    ${tw`w-full text-right flex items-center justify-start`}
+    
+    min-width: 200px;
+  }
+  .report-card__pin {    
+    ${tw`h-4 w-4 mr-4 rounded-full bg-yellow-400`}
 
-  .report-card-pin {    
+    flex-shrink: 0;
     animation-duration: .2s;
     animation-delay: .5s;
     animation-iteration-count: 1;
@@ -13,7 +21,9 @@ const StyledReportCard = styled.div.attrs({
     animation-fill-mode: both;
     animation-direction: normal;
   }
-  .report-card-key {
+  .report-card__key {
+    ${tw`rounded-full`}
+
     background: transparent!important;
     opacity: 0;
     transform-origin: 50% auto;
@@ -23,7 +33,9 @@ const StyledReportCard = styled.div.attrs({
                 opacity .2s 1s ease-out;
   }
 
-  .report-card-value {
+  .report-card__value {
+    ${tw`font-serif text-6xl`}
+
     opacity: 0;
     transform: translateX(-2rem) scale(1);
     transition: transform .2s 1.2s ease-out,
@@ -42,16 +54,16 @@ const StyledReportCard = styled.div.attrs({
       opacity: 1;
       transform: translateY(0);
 
-      .report-card-pin {
+      .report-card__pin {
         animation-name: blink;
       }
 
-      .report-card-key {
+      .report-card__key {
         transform: translateX(0) scale(1);
         opacity: 1;
       }
 
-      .report-card-value {
+      .report-card__value {
         opacity: 1;
         transform: translateX(0) scale(1);
       }

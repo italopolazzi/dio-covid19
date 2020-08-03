@@ -4,12 +4,12 @@ import ReportCard from 'components/ReportCard'
 import Api from 'commons/api/CoronaVirus19'
 import useHorizontalSlider from 'commons/hooks/useHorizontalSlider'
 
-const ReportsRow = ({ country }) => {
+const ReportsRow = ({ place }) => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    Api.getCountryReports(country.name).then(data => setData(data))
-  }, [country])
+    Api.getCountryReports(place.name).then(data => setData(data))
+  }, [place])
 
   const ApiData = () => {
 

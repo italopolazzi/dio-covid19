@@ -30,8 +30,8 @@ const AppCountriesDataSection = ({ country }) => {
             </div>
           </div>
         </div>
-        <ReportsRow country={country} />
-        <ReportsRow country={"World"} />
+        <ReportsRow place={country} />
+        <ReportsRow place={"World"} />
       </section>
 
       <section id="news">
