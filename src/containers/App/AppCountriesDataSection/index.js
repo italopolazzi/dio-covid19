@@ -2,7 +2,7 @@ import React from 'react'
 import StyledAppCountriesDataSection from './style'
 import NewsRow from 'components/NewsRow'
 import ReportsRow from 'components/ReportsRow'
-
+import countries from 'commons/constants/countries'
 
 const AppCountriesDataSection = ({ country }) => {
   const getDate = () => {
@@ -31,7 +31,7 @@ const AppCountriesDataSection = ({ country }) => {
           </div>
         </div>
         <ReportsRow place={country} />
-        <ReportsRow place={"World"} />
+        <ReportsRow place={{name: "World", code: "earth" }} />
       </section>
 
       <section id="news">

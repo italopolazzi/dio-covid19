@@ -13,7 +13,7 @@ const ReportsRow = ({ place }) => {
 
   const ApiData = () => {
 
-    if (!data) return <span>No available data</span>
+  if (!data) return <span class="no-data">No available data for "{place.name}"</span>
 
     return Object.keys(data).map((key, index) => <ReportCard key={key} datum={{ key, index, value: data[key] }} />)
 
