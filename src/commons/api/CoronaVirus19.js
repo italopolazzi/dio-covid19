@@ -15,24 +15,44 @@ const headers = {
   cache: 'default'
 }
 
+
+const giveIsEmptyResponse = () => ({ type: "is-empty" })
+const giveIsCompletedResponse = payload => ({ type: "is-completed", payload })
+const giveIsErrorResponse = error => ({ type: "is-error", payload: error })
+
+const giveResponse = (payload = null) => {
+  if (!payload) return giveIsEmptyResponse()
+  if (Array.isArray(payload) && payload.length) return giveIsCompletedResponse(payload)
+  if (Object.keys(payload).length) return giveIsCompletedResponse(payload)
+  return giveIsEmptyResponse()
+}
+
 const getCountryReports = async (country) => {
   if (isDevelopment) {
-    return reports_response
+    return giveResponse(reports_response)
   }
+  try {
+    const response = await fetch(reportsApiPath(country), headers)
+    const json = await response.json()
+    return giveResponse(json)
 
-  const response = await fetch(reportsApiPath(country), headers)
-  const json = await response.json()
-  return json
+  } catch (error) {
+    return giveIsErrorResponse(error)
+  }
 }
 
 const getCountryNews = async (country) => {
   if (isDevelopment) {
-    return news_response.articles
+    return giveResponse(news_response.articles)
   }
 
-  const response = await fetch(newsApiPath(country), headers)
-  const json = await response.json()
-  return json.articles
+  try {
+    const response = await fetch(newsApiPath(country), headers)
+    const json = await response.json()
+    return giveResponse(json.articles)
+  } catch (error) {
+    return giveIsErrorResponse(error)
+  }
 }
 
 export default {

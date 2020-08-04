@@ -25,7 +25,7 @@ const ReportCard = ({ datum }) => {
   }
 
   const correctName = keyNameCorrector(key)
-  const correctValue = !!value ? value : "-"
+  const correctValue = value
 
   const elementRef = useScrollAnimation()
   return (
