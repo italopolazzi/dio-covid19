@@ -4,10 +4,6 @@ import tw from 'twin.macro'
 const StyledInfoSection = styled.section.attrs({
   className: `info-section`
 })`
-
-  .even-row > :first-child {
-    order: 1
-  }
   
   .info-section__title {
     ${tw`text-4xl mt-8 font-bold font-serif`}
@@ -15,6 +11,14 @@ const StyledInfoSection = styled.section.attrs({
   
   .info-section__sheet {
     ${tw`flex flex-col items-center justify-center`}
+
+    &--sm {
+      ${tw`w-full`}
+    }
+
+    &--md {
+      ${tw`w-1/2 bg-white p-8`}
+    }
 
     will-change: opacity;
     transition: opacity .3s .25s ease-out;
@@ -54,6 +58,22 @@ const StyledInfoSection = styled.section.attrs({
       border-bottom: var(--arrow-size) solid transparent;
       border-left: var(--arrow-size) solid transparent;
     }
+  }
+
+  .info-section__row {
+    ${tw`flex items-center`}
+
+    &--even > :first-child {
+      order: 1
+    }
+
+    &--odd {
+
+    }
+  }
+
+  .info-section__animation-container {
+    ${tw`w-1/2 flex items-center justify-center`}
   }
 
   .info-section__animation {
