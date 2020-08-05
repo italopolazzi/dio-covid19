@@ -79,7 +79,7 @@ function AppAboutSection(props) {
     <StyledAppAboutSection {...props}>
       <div className="about-section">
 
-        <div className="text-4xl font-thin font-serif about-exclamation">
+        <div className="about-exclamation">
           <div className="l1">A</div>
           <div className="l2">b</div>
           <div className="l3">o</div>

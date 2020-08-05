@@ -12,7 +12,7 @@ const StyledAppAboutSection = styled.section.attrs({
     ${tw`container mx-auto px-4 h-screen w-full flex justify-center items-center`}
   }
   .about-exclamation {
-	   ${tw`text-white lowercase text-center`}
+	   ${tw`text-4xl font-thin font-serif text-white lowercase text-center`}
   }
 
   --percent: 0.23;

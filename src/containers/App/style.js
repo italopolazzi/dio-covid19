@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import tw from 'twin.macro'
-
 const background_color = 'bg-white'
 
 const StyledApp = styled.div.attrs({

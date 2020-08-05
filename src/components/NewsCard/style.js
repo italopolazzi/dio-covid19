@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import tw from 'twin.macro'
+import { theme } from 'twin.macro'
 
 const StyledNewsCard = styled.div.attrs({
   className: `news-card`
 })`
-
   & {
     .news-card__article {
       ${tw`relative p-8`}
@@ -81,7 +81,7 @@ const StyledNewsCard = styled.div.attrs({
     }
 
     &:hover .news-card__title {
-      box-shadow: inset 0 -2rem 0 -1rem yellow;
+      box-shadow: inset 0 -2rem 0 -1rem ${theme`colors.green.400`}!important;
     }
   }
 

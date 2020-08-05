@@ -31,11 +31,11 @@ function AppNav(props) {
 
   return (
     <StyledAppNav ref={navRef}>
-      <ul className="bg-black text-white flex mb-2 p-4 rounded-full shadow-2xl">
-        <li className="mx-2 hover:text-blue-400"><a href="#app-header">Start</a></li>
-        <li className="mx-2 hover:text-yellow-400"><a href="#reports">Reports</a></li>
-        <li className="mx-2 hover:text-green-400"><a href="#news">News</a></li>
-        <li className="mx-2 hover:text-red-400"><a href="#app-about-section">About</a></li>
+      <ul className="app-nav__list">
+        <li className="app-nav__list-item"><a href="#app-header">Start</a></li>
+        <li className="app-nav__list-item"><a href="#reports">Reports</a></li>
+        <li className="app-nav__list-item"><a href="#news">News</a></li>
+        <li className="app-nav__list-item"><a href="#app-about-section">About</a></li>
       </ul>
     </StyledAppNav>
   )
