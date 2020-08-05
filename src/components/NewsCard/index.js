@@ -3,24 +3,23 @@ import StyledNewsCard from './style'
 
 import useScrollAnimation from 'commons/hooks/useScrollAnimation'
 
-const NewsCard = ({ datum }) => {
-  const { title, url, urlToImage, source } = datum
+const NewsCard = ({ datum: { title, url, urlToImage, source } }) => {
 
   const elementRef = useScrollAnimation()
 
   return (
     <StyledNewsCard ref={elementRef}>
       <a href={url} target="blank">
-        <article className="relative p-8">
+        <article className="news-card__article">
 
-          <div className="news-card-image rounded-lg overflow-hidden">
-            <img src={urlToImage} alt="" className="w-full h-full object-cover" />
+          <div className="news-card__image-container">
+            <img src={urlToImage} alt="" className="news-card__image" />
           </div>
 
-          <header className="news-card-header m-6 p-6 shadow-xl relative z-10 bg-white">
-            <h1 className="news-card-title font-semibold mb-4 whitespace-normal">{title}</h1>
-            <div className="news-card-footer w-full text-right">
-              <span className="font-thin">{source.name}</span>
+          <header className="news-card__header">
+            <h1 className="news-card__title">{title}</h1>
+            <div className="news-card__source">
+              <span>{source.name}</span>
             </div>
           </header>
         </article>
